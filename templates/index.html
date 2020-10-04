@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Predictor</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class = "login">
+    <h1>College Predictor</h1>
+    <form class="home" action="{{ url_for('predict')}}" method="post">
+    <input type="number" min="0" max="340" step="1" name="GRE Score" id = "GRE Score" placeholder="GRE Score (0-340, +-1)" required="required">
+    <br>
+    <input type="number" min="0" max="120" step="1" name="TOEFL Score" placeholder="TOEFL Score (0-120, +-1)" required="required">
+    <br>
+    <input type="number" min="0" max="4" step="1" name="University Rating" placeholder="University Rating (0-4, +-1)" required="required">
+    <br>
+    <input type="number" min="0" max="5" step=".5" name="SOP" placeholder="SOP (0-5, +-0.5)" required="required">
+    <br>
+    <input type="number" min="0" max="5" step=".5" name="LOR" placeholder="LOR (0-5, +-0.5)" required="required">
+    <br>
+    <input type="number" min="0" max="10" step=".01"  name="CGPA" placeholder="CGPA (0-10, +-0.01)" required="required">
+    <br>
+    <input type="number" min="0" max="1" step="1" name="Research" placeholder="Research (0-1, +-1)" required="required">
+    <br>
+    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    </div>
+    <br><br>
+    {{prediction_text}}
+</body>
+</html>
